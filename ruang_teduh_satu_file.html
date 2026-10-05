@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ruang Teduh</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef7f2;color:#29443a}.wrap{max-width:600px;margin:auto;padding:28px 18px}.card{background:#fff;border-radius:24px;padding:24px;box-shadow:0 8px 25px rgba(40,80,60,.08)}h1{text-align:center;margin:5px 0 8px;font-size:28px}.sub{text-align:center;color:#71877d;margin-bottom:24px}textarea{width:100%;min-height:180px;border:1px solid #d7e6df;border-radius:16px;padding:16px;font-size:16px;resize:vertical;outline:none}button{width:100%;border:0;border-radius:14px;padding:15px;margin-top:14px;background:#5f927c;color:#fff;font-size:16px;font-weight:bold}#result{display:none;margin-top:22px;padding:20px;background:#f4faf7;border-radius:18px}.label{font-size:13px;color:#6d887c;margin-bottom:8px}.quote{font-size:18px;line-height:1.7;font-weight:bold}.source{margin-top:10px;font-size:14px;color:#547466}.reflection{margin-top:18px;line-height:1.6;color:#52665e}.note{font-size:12px;color:#82938d;margin-top:18px;line-height:1.5}
+</style></head><body><div class="wrap"><div class="card">
+<h1>Ruang Teduh 🌿</h1><p class="sub">Ceritakan yang sedang kamu rasakan.</p>
+<textarea id="curhat" placeholder="Tulis curhatmu di sini..."></textarea>
+<button onclick="cari()">Cari pengingat untukku</button>
+<div id="result"><div class="label" id="label"></div><div class="quote" id="quote"></div><div class="source" id="source"></div><div class="reflection" id="reflection"></div></div>
+<p class="note">Pengingat ini adalah sarana refleksi dan pengingat, bukan pengganti nasihat ustaz atau bantuan profesional.</p>
+</div></div>
+<script>
+const data=[
+{keys:["takut","cemas","khawatir","gelisah","panik"],label:"Untuk rasa takut dan khawatirmu",quote:"Barang siapa bertakwa kepada Allah, niscaya Dia akan membukakan jalan keluar baginya.",source:"QS. At-Talaq: 2",reflection:"Tidak semua hal harus kamu selesaikan sekaligus. Tenangkan diri, lalu jalani satu langkah kecil hari ini."},
+{keys:["sedih","nangis","menangis","hancur","kecewa"],label:"Untuk hatimu yang sedang sedih",quote:"Jangan berputus asa dari rahmat Allah.",source:"QS. Az-Zumar: 53",reflection:"Sedih bukan berarti kamu jauh dari Allah. Beri dirimu waktu untuk merasa, sambil tetap percaya pada rahmat-Nya."},
+{keys:["capek","lelah","cape","beban","berat"],label:"Untuk kamu yang sedang lelah",quote:"Allah tidak membebani seseorang melainkan sesuai dengan kesanggupannya.",source:"QS. Al-Baqarah: 286",reflection:"Kalau hari ini terasa berat, istirahat bukan berarti menyerah. Kamu boleh berjalan pelan."},
+{keys:["sendiri","kesepian","ditinggal"],label:"Untuk rasa sepi yang kamu rasakan",quote:"Dan sungguh, Kami telah menciptakan manusia dan mengetahui apa yang dibisikkan oleh hatinya.",source:"QS. Qaf: 16",reflection:"Allah mengetahui bahkan apa yang hanya tersimpan di dalam hatimu."},
+{keys:["gagal","tidak berhasil","kandas"],label:"Untuk kamu yang merasa gagal",quote:"Karena sesungguhnya bersama kesulitan ada kemudahan.",source:"QS. Al-Insyirah: 5",reflection:"Satu kegagalan tidak menentukan seluruh masa depanmu. Bisa jadi kamu sedang belajar sebelum sampai pada sesuatu yang lebih baik."},
+{keys:["uang","rezeki","kerja","pekerjaan","usaha","gaji"],label:"Untuk urusan rezeki dan pekerjaan",quote:"Dan barang siapa bertakwa kepada Allah, niscaya Dia menjadikan baginya jalan keluar dan memberinya rezeki dari arah yang tidak disangka-sangkanya.",source:"QS. At-Talaq: 2–3",reflection:"Tetap berusaha semampumu, sambil menyerahkan hasil kepada Allah."},
+{keys:["dosa","salah","taubat","tobat","maksiat","menyesal"],label:"Untuk hati yang ingin kembali",quote:"Jangan berputus asa dari rahmat Allah.",source:"QS. Az-Zumar: 53",reflection:"Kalau kamu menyesal dan ingin berubah, jangan merasa sudah terlalu jauh untuk kembali."}
+];
+function cari(){let t=document.getElementById("curhat").value.trim().toLowerCase();if(!t){alert("Tulis dulu curhatmu ya 🌿");return}let x=data.find(a=>a.keys.some(k=>t.includes(k)))||{label:"Untuk hatimu hari ini",quote:"Ingatlah, hanya dengan mengingat Allah hati menjadi tenteram.",source:"QS. Ar-Ra'd: 28",reflection:"Apa pun yang sedang kamu hadapi, tarik napas pelan, berdoa, lalu lanjutkan sedikit demi sedikit."};document.getElementById("label").textContent=x.label;document.getElementById("quote").textContent="“"+x.quote+"”";document.getElementById("source").textContent=x.source;document.getElementById("reflection").textContent=x.reflection;document.getElementById("result").style.display="block"}
+</script></body></html>
